@@ -14,7 +14,6 @@ private:
 
     // id reserved for new body creation
     int new_id;
-
     map<int,Body> bodies;
     
 public:
@@ -23,16 +22,25 @@ public:
 
     void clear();
 
-    // adds body to World and returns
+    // add body to World and return it's id
     int createBody(Body body);
 
-    // deletes Body by id and returns if body is deleted
+    // set or create body with id
+    void setBody(Body body,int id);
+
+    // delete Body by id and return if body is deleted
     bool deleteBody(int id);
 
-    // moves Body according to physics and returns vector of result movement
+    // move Body according to physics and return vector of result movement
     Vector moveBody(int id,Vector v);
 
-    // provides access to bodies map
+    // provide access to bodies map
     const map<int,Body>& getBodies() const;
+
+    // save world to file
+    int save(FILE *fp);
+
+    // load world from file
+    int load(FILE *fp);
 
 };
