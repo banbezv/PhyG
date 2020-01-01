@@ -1,8 +1,9 @@
-dependencies=""
-flags="-std=c++14 -lsfml-graphics -lsfml-system -lsfml-window -lsfml-audio -g"
+flags=-std=c++14 -lsfml-graphics -lsfml-system -lsfml-window -lsfml-audio -g
 
-all: main dependencies
+all: main
 
-main: dependencies
-	g++ main.cpp -o main flags
+dependencies: main.cpp Engine.hpp
+
+main: $(dependencies)
+	g++ main.cpp -o main $(flags)
 
