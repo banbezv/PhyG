@@ -1,9 +1,16 @@
-flags=-std=c++14 -lsfml-graphics -lsfml-system -lsfml-window -lsfml-audio -g
+cppflags=-std=c++14 -g
+
+oflags=-lsfml-graphics -lsfml-system -lsfml-window -lsfml-audio
 
 all: main
 
-dependencies: main.cpp Engine.hpp Body.hpp Vector.hpp Double.hpp
+dependencies: Engine.hpp Body.hpp Vector.hpp Double.hpp
 
-main: dependencies
-	g++ main.cpp -o main $(flags)
+OBJS=Double.o
+
+main: main.o $(OBJS) dependencies
+	g++ main.o $(OBJS) -o main $(oflags)
+
+%.o: %.cpp
+	g++ -c $< -o $@ $(cppflags)
 
