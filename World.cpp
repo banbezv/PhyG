@@ -29,9 +29,6 @@ bool World::deleteBody(int id){
 	return bodies.erase(id);
 }
 
-// move Body according to physics and return vector of result movement
-//Vector moveBody(int id,Vector v); ///////////////////////////////////////////
-
 // provide access to bodies map
 const std::map<int,Body>& World::getBodies() const {
 	return bodies;
@@ -63,4 +60,30 @@ size_t World::load(FILE *fp){
 		setBody(body,id);
 	}
 	return res;
+}
+
+// move Body according to physics and return vector of result movement
+Vector World::moveBody(int id,Vector v){
+	Vector res=v,temp;
+	for(auto element:bodies){
+		const int &id2=element.first;
+		if(id2==id){
+			continue;
+		}
+		temp=moveBody1ToBody2(id,id2,v);
+		res=reduceMovementVector(v,res,temp);
+	}
+	bodies[id].position+=res;
+	return res;
+}
+
+// reducing moveBody to two bodies' case
+Vector World::moveBody1ToBody2(int id1,int id2,Vector v) const {
+	std::vector<Vector> points1=bodies.at(id1).getPoints(),
+		points2=bodies.at(id2).getPoints();
+	std::vector<Section> sections1=bodies.at(id1).getSides(),
+		sections2=bodies.at(id2).getSides();
+	Vector movement1=movePointsToSections(points1,sections2,v),
+		movement2=movePointsToSections(points2,sections1,v*(-1))*(-1);
+	return reduceMovementVector(v,movement1,movement2);
 }

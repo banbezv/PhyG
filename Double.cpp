@@ -1,5 +1,4 @@
 #include "Double.hpp"
-#include <cmath>
 
 Double::Double():x(0){}
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <cmath>
 
 #define MYEPSILON 1e-5
 

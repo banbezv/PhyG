@@ -1,10 +1,13 @@
 #pragma once
 
 #include <map>
+#include <vector>
 #include <stdio.h>
 #include "Body.hpp"
 #include "Vector.hpp"
+#include "Section.hpp"
 #include "utils.hpp"
+#include "Physics.hpp"
 
 // World class manipulates with Body objects and implements physics
 class World{
@@ -14,6 +17,8 @@ private:
 	// id reserved for new body creation
 	int new_id;
 	std::map<int,Body> bodies;
+
+	Vector moveBody1ToBody2(int id1,int id2,Vector v) const;
 	
 public:
 
