@@ -8,7 +8,7 @@ all: main
 
 dependencies: Engine.hpp Body.hpp Vector.hpp Double.hpp
 
-OBJS=Double.o Vector.o
+OBJS=Double.o Vector.o Body.o
 
 main: main.o $(OBJS) dependencies
 	g++ main.o $(OBJS) -o main $(oflags)

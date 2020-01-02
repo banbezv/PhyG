@@ -1,6 +1,6 @@
 #include "Vector.hpp"
 
-Vector::Vector(){}
+Vector::Vector()=default;
 
 Vector::Vector(const Double& _x,const Double& _y){
 	x=_x;

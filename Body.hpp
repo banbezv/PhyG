@@ -6,7 +6,7 @@
 // Body's parameters
 class Body{
 
-private:
+public:
 
     // position of the center of rectangle
     Vector position;
@@ -14,26 +14,14 @@ private:
     // deviation from the vertical to clockwise
     Double rotation;
 
-public:
-
     Body();
 
-    void setPosition(Vector _position);
-
-    void setSize(Vector _size);
-
-    void setRotation(Double _rotation);
-
-    const Vector& getPosition() const;
-
-    const Vector& getSize() const;
-
-    const Double& getRotation() const;
+    Body(const Vector& _position,const Vector& _size,const Double& _rotation);
 
     // save body to file
-    int save(FILE *fp);
+    size_t save(FILE *fp) const;
 
     // load body from file
-    int load(FILE *fp);
+    size_t load(FILE *fp);
 
 };
