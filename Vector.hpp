@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include "Double.hpp"
 
 // Vector for works with float ariphmetics

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include "Vector.hpp"
 #include "Double.hpp"
 
