@@ -1,8 +1,7 @@
 #include "Double.hpp"
 #include <cmath>
 
-// wrapper for float ariphmetic with soft comparison
-Double::Double(){}
+Double::Double():x(0){}
 
 Double::Double(int _x):x(_x){}
 
@@ -75,11 +74,11 @@ bool Double::operator<=(const Double& d) const {
 }
 
 // save Double to file
-int Double::save(FILE *fp){
+size_t Double::save(FILE *fp) const {
 	return fwrite(&x,sizeof(x),1,fp);
 }
 
 // load Double from file
-int Double::load(FILE *fp){
+size_t Double::load(FILE *fp){
 	return fread(&x,sizeof(x),1,fp);
 }

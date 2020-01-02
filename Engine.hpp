@@ -38,9 +38,9 @@ public:
     const map<int,Body>& getBodies() const;
 
     // save world to file
-    int save(FILE *fp);
+    size_t save(FILE *fp);
 
     // load world from file
-    int load(FILE *fp);
+    size_t load(FILE *fp);
 
 };

@@ -50,9 +50,9 @@ public:
     bool operator<=(const Double& d) const;
 
     // save Double to file
-    int save(FILE *fp);
+    size_t save(FILE *fp) const;
 
     // load Double from file
-    int load(FILE *fp);
+    size_t load(FILE *fp);
 
 };
