@@ -14,4 +14,7 @@ public:
 
 	Section(Vector _p1,Vector _p2);
 
+	// check if point belongs to section
+	bool have(Vector point) const;
+
 };

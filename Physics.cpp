@@ -11,3 +11,18 @@ const std::vector<Section> sections,Vector v){
 	}
 	return res;
 }
+
+Vector movePointToSection(Vector point,Section section,Vector v){
+	if(v==Vector()){
+		return Vector();
+	}
+	if(isIntersected(Section(point,point+v),section)){
+		Vector crosspoint=intersect(Section(point,point+v),section);
+		while(!isPointLeftOfSection(crosspoint,section)){
+			crosspoint-=getDirection(v)*MYEPSILON;
+		}
+		return crosspoint-point;
+	} else {
+		return v;
+	}
+}

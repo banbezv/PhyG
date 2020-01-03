@@ -3,6 +3,7 @@
 #include <vector>
 #include "Vector.hpp"
 #include "Section.hpp"
+#include "Geometry.hpp"
 #include "utils.hpp"
 
 Vector movePointsToSections(const std::vector<Vector>& points,
