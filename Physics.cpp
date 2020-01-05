@@ -1,5 +1,9 @@
 #include "Physics.hpp"
 
+#include <string>
+#include <iostream>
+using namespace std;
+
 Vector movePointsToSections(const std::vector<Vector>& points,
 const std::vector<Section> sections,Vector v){
 	Vector res=v,temp;
@@ -12,6 +16,8 @@ const std::vector<Section> sections,Vector v){
 	return res;
 }
 
+// move point to vector until it collides with section
+// return movement vector
 Vector movePointToSection(Vector point,Section section,Vector v){
 	if(v==Vector()){
 		return Vector();

@@ -2,10 +2,19 @@
 
 Body::Body()=default;
 
+
+Body::Body(Double x,Double y,Double width,Double height,Double _rotation):
+	Body(Vector(x,y),Vector(width,height),_rotation){}
+
 Body::Body(const Vector& _position,const Vector& _size,const Double& _rotation){
 	position=_position;
 	size=_size;
 	rotation=_rotation;
+}
+
+Body::operator std::string() const {
+	return "{"+std::string(position)+";"+std::string(size)+";"+
+		std::string(rotation)+"}";
 }
 
 // get corners of rectangle body
@@ -41,3 +50,4 @@ size_t Body::save(FILE *fp) const {
 size_t Body::load(FILE *fp){
 	return position.load(fp)+size.load(fp)+rotation.load(fp);
 }
+

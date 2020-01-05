@@ -7,6 +7,14 @@ Vector::Vector(const Double& _x,const Double& _y){
 	y=_y;
 }
 
+Vector::operator sf::Vector2f() const {
+	return sf::Vector2f(x,y);
+}
+
+Vector::operator std::string() const {
+	return "("+std::string(x)+","+std::string(y)+")";
+}
+
 Double Vector::operator*(const Vector& v) const {
 	return x*v.x+y*v.y;
 }

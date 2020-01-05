@@ -8,8 +8,14 @@ Double::Double(float _x):x(_x){}
 
 Double::Double(double _x):x(_x){}
 
-Double::operator double(){
+Double::operator double() const{
 	return x;
+}
+
+Double::operator std::string() const {
+	char str[20];
+	sprintf(str,"%f",x);
+	return std::string(str);
 }
 
 Double& Double::operator+=(const Double& d){

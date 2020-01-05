@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include "Vector.hpp"
 
 // Geometry object Section
@@ -13,6 +14,8 @@ public:
 	Section();
 
 	Section(Vector _p1,Vector _p2);
+
+	operator std::string() const;
 
 	// check if point belongs to section
 	bool have(Vector point) const;

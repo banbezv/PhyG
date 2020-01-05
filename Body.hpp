@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 #include <stdio.h>
 #include <cmath>
 #include "Section.hpp"
@@ -20,7 +21,11 @@ public:
 
 	Body();
 
+	Body(Double x,Double y,Double width,Double height,Double _rotation);
+
 	Body(const Vector& _position,const Vector& _size,const Double& _rotation);
+
+	operator std::string() const;
 
 	std::vector<Vector> getPoints() const;
 

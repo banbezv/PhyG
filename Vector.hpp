@@ -1,6 +1,8 @@
 #pragma once
 
+#include <string>
 #include <stdio.h>
+#include <SFML/System.hpp>
 #include "Double.hpp"
 
 // Vector for works with float ariphmetics
@@ -13,6 +15,10 @@ public:
 	Vector();
 
 	Vector(const Double& _x,const Double& _y);
+
+	operator sf::Vector2f() const;
+
+	operator std::string() const;
 
 	Double operator*(const Vector& v) const;
 

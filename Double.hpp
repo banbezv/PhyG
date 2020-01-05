@@ -1,7 +1,8 @@
 #pragma once
 
-#include <stdio.h>
+#include <string>
 #include <cmath>
+#include <stdio.h>
 
 #define MYEPSILON 1e-5
 
@@ -20,7 +21,9 @@ public:
 
     Double(double _x);
 
-    operator double();
+    operator double() const;
+
+    operator std::string() const;
 
     Double& operator+=(const Double& d);
 

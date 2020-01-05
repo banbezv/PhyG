@@ -1,14 +1,5 @@
 operator+: ambigious overload: int and Double
-operator string
 functions2test list:
     moveBody
     moveBody1ToBody2
-    getPoints
-    getSides
     movePointsToSections
-    movePointToSection
-    isIntersected
-    intersect
-    have
-    getDirection
-    isPointLeftOfSection
