@@ -23,11 +23,16 @@ Vector movePointToSection(Vector point,Section section,Vector v){
 		return Vector();
 	}
 	if(isIntersected(Section(point,point+v),section)){
-		Vector crosspoint=intersect(Section(point,point+v),section);
-		while(!isPointLeftOfSection(crosspoint,section)){
-			crosspoint-=getDirection(v)*MYEPSILON;
+		if(isPointLeftOfSection(section.p1+v,section)){
+			return v;
 		}
-		return crosspoint-point;
+		Vector crosspoint=intersect(Section(point,point+v),section);
+		if (isPointLeftOfSection(point, section)) {
+			while (!isPointLeftOfSection(crosspoint, section)) {
+				crosspoint -= getDirection(v) * MYEPSILON;
+			}
+		}
+		return crosspoint - point;
 	} else {
 		return v;
 	}
