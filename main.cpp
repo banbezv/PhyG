@@ -37,7 +37,7 @@ int main(){
 			rect.setPosition(body.position);
 			rect.setSize(body.size);
 			rect.setOrigin(body.size/2);
-			rect.setRotation(body.rotation);
+			rect.setRotation(-body.rotation);
 			rect.setFillColor(element.first==0?sf::Color::Green:sf::Color::Blue);
 			window.draw(rect);
 		}
